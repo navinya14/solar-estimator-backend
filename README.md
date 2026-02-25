@@ -19,6 +19,7 @@ A free, beginner-friendly **solar estimation app** for Indian households — Fas
 ## Project Structure
 
 ```
+├── start.sh          # ⚡ One-command local deploy script
 ├── index.html        # Single-page frontend (no build step required)
 ├── main.py           # FastAPI app with all 3 endpoints + serves index.html
 ├── estimator.py      # Pure calculation logic (no FastAPI imports)
@@ -30,7 +31,30 @@ A free, beginner-friendly **solar estimation app** for Indian households — Fas
 
 ---
 
-## Setup Instructions
+## ⚡ Quick Start (One Command)
+
+```bash
+git clone https://github.com/navinya14/solar-estimator-backend.git
+cd solar-estimator-backend
+bash start.sh
+```
+
+`start.sh` automatically:
+1. Creates a Python virtual environment (`venv/`)
+2. Installs all dependencies from `requirements.txt`
+3. Starts the server at **http://localhost:8000**
+
+> **Custom port:** `bash start.sh --port 8080`
+
+Then open your browser at:
+- 🌞 **Frontend UI** → http://localhost:8000
+- 📖 **Swagger API docs** → http://localhost:8000/docs
+
+Press `Ctrl+C` to stop the server.
+
+---
+
+## Manual Setup (Step-by-Step)
 
 ```bash
 # 1. Clone the repository
@@ -38,7 +62,7 @@ git clone https://github.com/navinya14/solar-estimator-backend.git
 cd solar-estimator-backend
 
 # 2. Create and activate a virtual environment
-python -m venv venv
+python3 -m venv venv
 source venv/bin/activate   # Windows: venv\Scripts\activate
 
 # 3. Install dependencies
@@ -47,10 +71,6 @@ pip install -r requirements.txt
 # 4. Run the development server
 uvicorn main:app --reload
 ```
-
-The API will be available at `http://localhost:8000`.
-**Frontend UI**: `http://localhost:8000` (opens the estimator form)
-Interactive Swagger docs: `http://localhost:8000/docs`
 
 ---
 
