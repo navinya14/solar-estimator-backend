@@ -1,11 +1,12 @@
-# Rooftop Solar Estimator Backend
+# Rooftop Solar Estimator
 
-A free, beginner-friendly backend service built with **Python and FastAPI** that estimates rooftop solar system requirements for Indian households. No paid APIs, no external HTTP calls — all calculations are local.
+A free, beginner-friendly **solar estimation app** for Indian households — FastAPI backend + plain HTML/CSS/JS frontend. No paid APIs, no external HTTP calls, no build tools required.
 
 ---
 
 ## Features
 
+- 🌞 **Browser UI** — open `http://localhost:8000` and fill in the form
 - 🌆 Supports **11 major Indian cities** with city-specific solar generation data
 - 💰 Returns **3 cost tiers** (Budget / Mid / Premium) with installation cost estimates
 - 📊 Calculates **monthly savings** and **payback period** based on your electricity bill
@@ -18,7 +19,8 @@ A free, beginner-friendly backend service built with **Python and FastAPI** that
 ## Project Structure
 
 ```
-├── main.py           # FastAPI app with all 3 endpoints
+├── index.html        # Single-page frontend (no build step required)
+├── main.py           # FastAPI app with all 3 endpoints + serves index.html
 ├── estimator.py      # Pure calculation logic (no FastAPI imports)
 ├── city_data.py      # City solar generation lookup table
 ├── models.py         # Pydantic request/response models
@@ -47,6 +49,7 @@ uvicorn main:app --reload
 ```
 
 The API will be available at `http://localhost:8000`.
+**Frontend UI**: `http://localhost:8000` (opens the estimator form)
 Interactive Swagger docs: `http://localhost:8000/docs`
 
 ---

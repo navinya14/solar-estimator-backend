@@ -1,6 +1,7 @@
 # main.py
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import FileResponse
 from models import EstimateRequest, EstimateResponse
 from estimator import calculate_estimate
 from city_data import CITY_SOLAR_DATA
@@ -17,6 +18,11 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+
+@app.get("/", include_in_schema=False)
+def serve_frontend():
+    return FileResponse("index.html")
 
 
 @app.get("/health", tags=["Utility"])
